@@ -1,0 +1,21 @@
+{
+  "name": "sibir-optika-crm",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "backup:postgres": "powershell -ExecutionPolicy Bypass -File scripts/backup-postgres.ps1",
+    "mcp": "node mcp-server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.0"
+  }
+}

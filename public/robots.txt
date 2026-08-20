@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /crm
+Disallow: /api/
+
+Host: sibir-optika.ru
+Sitemap: https://sibir-optika.ru/sitemap.xml

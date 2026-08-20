@@ -1,0 +1,166 @@
+[
+  {
+    "id": "lead_20260620_c1243d3abec0",
+    "leadNumber": "3548",
+    "createdAt": "2026-06-20T07:55:18.425Z",
+    "updatedAt": "2026-06-20T07:55:18.425Z",
+    "type": "appointment",
+    "status": "new",
+    "name": "Тест очистки",
+    "phone": "+7 (999) 111-22-33",
+    "service": "Очки по рецепту",
+    "recipe": "Да",
+    "message": "Проверка после очистки",
+    "productId": "",
+    "productTitle": "",
+    "page": "",
+    "source": "site",
+    "utmSource": "",
+    "utmMedium": "",
+    "utmCampaign": "",
+    "adminNote": "",
+    "assignedTo": "",
+    "history": [
+      {
+        "at": "2026-06-20T07:55:18.425Z",
+        "action": "created",
+        "value": "new"
+      }
+    ]
+  },
+  {
+    "id": "lead_20260620_04154e424c4d",
+    "leadNumber": "9043",
+    "createdAt": "2026-06-20T07:26:46.531Z",
+    "updatedAt": "2026-06-20T07:26:46.531Z",
+    "type": "appointment",
+    "status": "new",
+    "name": "Тест",
+    "phone": "+7 (999) 111-22-33",
+    "service": "diagnostics",
+    "recipe": "Есть рецепт",
+    "message": "contact v2 test",
+    "productId": "",
+    "productTitle": "",
+    "page": "",
+    "source": "site",
+    "utmSource": "",
+    "utmMedium": "",
+    "utmCampaign": "",
+    "adminNote": "",
+    "assignedTo": "",
+    "history": [
+      {
+        "at": "2026-06-20T07:26:46.531Z",
+        "action": "created",
+        "value": "new"
+      }
+    ]
+  },
+  {
+    "id": "lead_20260620_b553d249a6e2",
+    "leadNumber": "7801",
+    "createdAt": "2026-06-20T07:22:59.295Z",
+    "updatedAt": "2026-06-20T07:22:59.295Z",
+    "type": "appointment",
+    "status": "new",
+    "name": "Тест Контактов",
+    "phone": "+7 (999) 111-22-33",
+    "service": "diagnostics",
+    "recipe": "Есть рецепт",
+    "message": "Тестовая заявка после исправления контактов",
+    "productId": "",
+    "productTitle": "",
+    "page": "",
+    "source": "site",
+    "utmSource": "",
+    "utmMedium": "",
+    "utmCampaign": "",
+    "adminNote": "",
+    "assignedTo": "",
+    "history": [
+      {
+        "at": "2026-06-20T07:22:59.295Z",
+        "action": "created",
+        "value": "new"
+      }
+    ]
+  },
+  {
+    "id": "lead_20260529_32b2ac5e0534",
+    "createdAt": "2026-05-29T14:33:33.687Z",
+    "updatedAt": "2026-05-29T14:36:10.556Z",
+    "type": "appointment",
+    "status": "bought",
+    "name": "рварв",
+    "phone": "+7 (913) 951-62-88",
+    "service": "Линзы для очков",
+    "recipe": "Нужно уточнить",
+    "message": "пывпыв",
+    "productId": "",
+    "productTitle": "",
+    "page": "/",
+    "source": "site",
+    "utmSource": "",
+    "utmMedium": "",
+    "utmCampaign": "",
+    "adminNote": "тест",
+    "assignedTo": "",
+    "history": [
+      {
+        "at": "2026-05-29T14:33:33.687Z",
+        "action": "created",
+        "value": "new"
+      },
+      {
+        "at": "2026-05-29T14:33:45.545Z",
+        "action": "status_changed",
+        "value": "in_progress"
+      },
+      {
+        "at": "2026-05-29T14:35:58.326Z",
+        "action": "updated",
+        "value": "in_progress"
+      },
+      {
+        "at": "2026-05-29T14:36:10.556Z",
+        "action": "status_changed",
+        "value": "bought"
+      }
+    ]
+  },
+  {
+    "id": "lead_20260529_5ee4765b054a",
+    "createdAt": "2026-05-29T14:32:40.914Z",
+    "updatedAt": "2026-05-29T14:33:11.277Z",
+    "type": "appointment",
+    "status": "new",
+    "name": "авыаыв",
+    "phone": "+7 (913) 951-62-88",
+    "service": "Замена линз",
+    "recipe": "Нет",
+    "message": "афыафы",
+    "productId": "",
+    "productTitle": "",
+    "page": "/",
+    "source": "site",
+    "utmSource": "",
+    "utmMedium": "",
+    "utmCampaign": "",
+    "adminNote": "",
+    "assignedTo": "",
+    "history": [
+      {
+        "at": "2026-05-29T14:32:40.914Z",
+        "action": "created",
+        "value": "new"
+      },
+      {
+        "at": "2026-05-29T14:33:04.243Z",
+        "action": "updated",
+        "value": "new"
+      }
+    ],
+    "deletedAt": "2026-05-29T14:33:11.277Z"
+  }
+]

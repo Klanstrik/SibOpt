@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Салон на Дуси Ковальчук">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbf7ee"/>
+      <stop offset="1" stop-color="#e9eef8"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b2344"/>
+      <stop offset="1" stop-color="#123e72"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="515" rx="52" fill="#ffffff" stroke="#dcd6ca"/>
+  <rect x="130" y="140" width="430" height="300" rx="34" fill="url(#card)"/>
+  <circle cx="245" cy="260" r="78" fill="none" stroke="#e9b75f" stroke-width="26"/>
+  <circle cx="445" cy="260" r="78" fill="none" stroke="#e9b75f" stroke-width="26"/>
+  <rect x="320" y="250" width="50" height="18" rx="9" fill="#e9b75f"/>
+  <text x="620" y="230" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#101624">Салон на Дуси Ковальчук</text>
+  <text x="620" y="310" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="500" fill="#5e6678">Вход с Красного проспекта · метро Заельцовская</text>
+  <text x="620" y="405" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#9a6b24">Замените этот SVG на реальную фотографию салона</text>
+</svg>

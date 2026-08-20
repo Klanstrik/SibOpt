@@ -1,0 +1,15 @@
+SEO-проверка после очистки
+
+Не сломано:
+- robots.txt сохранён
+- sitemap.xml сохранён
+- index.html, lenses.html, frames.html, repair.html имеют title, description, canonical, OpenGraph и JSON-LD
+- системные фразы на ключевых страницах не найдены
+- sitemap содержит lenses.html, frames.html, repair.html
+- добавлена 404.html с noindex,follow
+
+Синтаксис:
+- server.js: OK
+- mcp-server.mjs: OK
+- public/script.js: OK
+- public/crm/app.js: OK

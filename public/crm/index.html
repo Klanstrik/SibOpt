@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM — Сибирь-Оптика</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/crm/styles.css?v=crm-readable-leads-22" />
+  <style>
+:root {
+  --bg: #f4eee4;
+  --card: rgba(255, 255, 255, 0.88);
+  --card-solid: #ffffff;
+  --ink: #102033;
+  --muted: #65748a;
+  --line: rgba(16, 32, 51, 0.1);
+  --blue: #0f57c7;
+  --blue-soft: rgba(15, 87, 199, 0.09);
+  --gold: #d5a052;
+  --green: #13966a;
+  --green-soft: rgba(19, 150, 106, 0.13);
+  --orange: #d9821f;
+  --orange-soft: rgba(217, 130, 31, 0.14);
+  --red: #d34848;
+  --red-soft: rgba(211, 72, 72, 0.13);
+  --shadow: 0 22px 60px rgba(16, 32, 51, 0.1);
+  --radius: 28px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 4%, rgba(213, 160, 82, 0.23), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(15, 87, 199, 0.1), transparent 26%),
+    linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+  color: var(--ink);
+  font-family: Inter, Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.login-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.login-left {
+  padding: clamp(28px, 4vw, 56px);
+}
+
+.login-right {
+  display: grid;
+  align-content: space-between;
+  gap: 24px;
+  padding: clamp(28px, 4vw, 48px);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(213, 160, 82, 0.38), transparent 26%),
+    linear-gradient(135deg, #102033 0%, #153c78 100%);
+  color: #ffffff;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #102033 0%, #153c78 100%);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 16px 34px rgba(16, 32, 51, 0.16);
+}
+
+.login-right .brand-mark {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.brand-row strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.brand-row span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.login-right .brand-row span {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.login-copy {
+  margin-top: 54px;
+}
+
+.chip {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.login-copy h1 {
+  margin: 18px 0 14px;
+  max-width: 620px;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.login-copy p {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.login-form-box {
+  display: grid;
+  gap: 16px;
+  max-width: 500px;
+  margin-top: 34px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+label {
+  display: grid;
+  gap: 8px;
+}
+
+label span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9daabd;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(15, 87, 199, 0.38);
+  box-shadow: 0 0 0 4px rgba(15, 87, 199, 0.11);
+  background: #fff;
+}
+
+.primary-btn,
+.secondary-btn,
+.logout-btn,
+.login-submit,
+.nav-btn,
+.quick-action {
+  min-height: 46px;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 850;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+
+.primary-btn,
+.login-submit {
+  background: linear-gradient(135deg, #102033 0%, #153c78 100%);
+  color: #fff;
+  box-shadow: 0 18px 34px rgba(16, 32, 51, 0.18);
+}
+
+.secondary-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.login-submit:hover,
+.logout-btn:hover,
+.nav-btn:hover,
+.quick-action:hover {
+  transform: translateY(-1px);
+}
+
+.form-hint {
+  min-height: 20px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.login-features {
+  display: grid;
+  gap: 14px;
+}
+
+.login-feature {
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.login-feature strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+
+.login-feature span {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.55;
+}
+
+.login-preview {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.login-preview-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.login-preview-row span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.login-preview-row strong {
+  font-size: 20px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+.sidebar-top,
+.sidebar-bottom {
+  display: grid;
+  gap: 18px;
+}
+
+.sidebar-card,
+.sidebar-tip,
+.help-box {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.sidebar-card-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.sidebar-card strong,
+.sidebar-tip strong,
+.help-box strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sidebar-card span,
+.sidebar-tip span,
+.help-box p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, #102033 0%, #153c78 100%);
+  color: #fff;
+  box-shadow: 0 16px 28px rgba(16, 32, 51, 0.14);
+}
+
+
+
+.nav-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.nav-badge {
+  min-width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 950;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(211, 72, 72, 0.28);
+}
+
+.nav-btn.active .nav-badge {
+  background: #ff4f4f;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(255, 79, 79, 0.3);
+}
+
+.nav-icon {
+  text-align: center;
+}
+
+.logout-btn {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.content {
+  min-width: 0;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topbar h1 {
+  margin: 0 0 8px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: .96;
+  letter-spacing: -0.04em;
+}
+
+.topbar p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.visible {
+  display: block;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.stat-card,
+.panel,
+.lead-card,
+.product-card {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.stat-card {
+  padding: 22px;
+}
+
+.stat-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.dashboard-grid,
+.settings-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr);
+  gap: 18px;
+}
+
+.dashboard-side {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+.panel-subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.panel-head-stacked {
+  align-items: flex-start;
+}
+
+.quick-actions,
+.guide-steps,
+.info-grid,
+.cards-list {
+  display: grid;
+  gap: 12px;
+}
+
+.quick-action {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  text-align: left;
+}
+
+.quick-action strong {
+  font-size: 15px;
+}
+
+.quick-action span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.guide-steps div {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.guide-steps span {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.guide-steps p,
+.lead-card p,
+.product-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(16, 32, 51, 0.08);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.status-pill,
+.count-badge,
+.meta span,
+.product-tag {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.status-pill.status-new { background: var(--blue-soft); color: var(--blue); }
+.status-pill.status-in_progress { background: var(--orange-soft); color: var(--orange); }
+.status-pill.status-confirmed { background: var(--green-soft); color: var(--green); }
+.status-pill.status-visited { background: rgba(92, 84, 196, 0.12); color: #5c54c4; }
+.status-pill.status-completed { background: rgba(12, 132, 93, 0.14); color: #0c845d; }
+.status-pill.status-bought { background: rgba(12, 132, 93, 0.14); color: #0c845d; }
+.status-pill.status-no_show { background: rgba(217, 130, 31, 0.14); color: #d9821f; }
+.status-pill.status-no_answer { background: rgba(129, 141, 160, 0.14); color: #68788d; }
+.status-pill.status-refused { background: rgba(129, 141, 160, 0.14); color: #68788d; }
+.status-pill.status-cancelled { background: var(--red-soft); color: var(--red); }
+
+.count-badge {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  width: 230px;
+}
+
+.lead-card,
+.product-card {
+  padding: 20px;
+}
+
+.lead-top,
+.product-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.lead-top h3,
+.product-top h3 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta span {
+  background: rgba(16, 32, 51, 0.06);
+  color: var(--muted);
+}
+
+.lead-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 16px;
+}
+
+.lead-main,
+.lead-side,
+.lead-note {
+  display: grid;
+  gap: 12px;
+}
+
+.lead-actions,
+.product-actions,
+.form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.products-layout {
+  display: grid;
+  grid-template-columns: 430px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.form-span-2 {
+  grid-column: span 2;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.check-row input {
+  width: auto;
+}
+
+.form-actions {
+  margin-top: 16px;
+}
+
+.product-summary {
+  display: grid;
+  gap: 12px;
+}
+
+.product-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.product-tag {
+  background: rgba(213, 160, 82, 0.16);
+  color: #94692f;
+}
+
+.info-grid {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 8px;
+}
+
+.info-grid div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.info-grid strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.info-grid span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.toast-stack {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  display: grid;
+  gap: 10px;
+}
+
+.toast {
+  min-width: 260px;
+  max-width: 360px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(16, 32, 51, 0.96);
+  color: #fff;
+  box-shadow: 0 22px 45px rgba(16, 32, 51, 0.24);
+}
+
+.toast.toast-error {
+  background: rgba(211, 72, 72, 0.96);
+}
+
+.toast strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.toast span {
+  color: rgba(255,255,255,.78);
+  line-height: 1.45;
+}
+
+
+.accounting-filters {
+  margin-bottom: 16px;
+}
+
+.compact-date {
+  width: 170px;
+  display: grid;
+  gap: 6px;
+}
+
+.compact-date span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.accounting-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0 18px;
+}
+
+.accounting-summary div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.accounting-summary strong {
+  display: block;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.accounting-summary span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.accounting-table-wrap {
+  max-height: 620px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.accounting-table {
+  min-width: 1320px;
+}
+
+.accounting-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f7f9fc;
+}
+
+@media (max-width: 1320px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dashboard-grid,
+  .products-layout,
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1040px) {
+  .login-card {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .stats-grid,
+  .form-grid,
+  .lead-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-span-2 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .content,
+  .sidebar,
+  .login-screen {
+    padding: 16px;
+  }
+
+  .topbar,
+  .panel-head,
+  .lead-top,
+  .product-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topbar-actions,
+  .filters,
+  .lead-actions,
+  .product-actions,
+  .form-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .filters input,
+  .filters select,
+  .lead-actions select {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .login-left,
+  .login-right {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+  <main>
+    <section class="login-screen" id="loginScreen">
+      <form class="login-card" id="loginForm">
+        <div class="login-left">
+          <div class="brand-row">
+            <div class="brand-mark">S</div>
+            <div>
+              <strong>Сибирь-Оптика CRM</strong>
+              <span>Внутренняя система салона</span>
+            </div>
+          </div>
+
+          <div class="login-copy">
+            <div class="chip">Вход для сотрудников</div>
+            <h1>Введите пароль, чтобы открыть админку</h1>
+            <p>После входа вы попадёте в CRM. Администратор управляет всем сайтом, сотрудники работают с заявками и выгрузками.</p>
+          </div>
+
+          <div class="login-form-box">
+            <label>
+              <span>Роль сотрудника</span>
+              <select id="loginRole">
+                <option value="admin">Администратор</option>
+                <option value="staff">Сотрудник / бухгалтерия</option>
+              </select>
+            </label>
+            <label>
+              <span>Пароль</span>
+              <input type="password" id="password" autocomplete="current-password" placeholder="Введите пароль для выбранной роли" required />
+            </label>
+            <button class="login-submit" type="submit">Войти в CRM</button>
+            <p id="loginStatus" class="form-hint">Пароли задаются в .env: ADMIN_PASSWORD, STAFF_PASSWORD</p>
+          </div>
+        </div>
+
+        <div class="login-right">
+          <div class="brand-row">
+            <div class="brand-mark">CRM</div>
+            <div>
+              <strong>Что будет после входа</strong>
+              <span>Понятная панель для работы с клиентами</span>
+            </div>
+          </div>
+
+          <div class="login-features">
+            <div class="login-feature">
+              <strong>Заявки с сайта</strong>
+              <span>Клиент оставляет телефон, а сотрудник видит новую заявку в списке.</span>
+            </div>
+            <div class="login-feature">
+              <strong>Предварительная бронь</strong>
+              <span>Сотрудник проверяет наличие очков и только потом подтверждает бронь.</span>
+            </div>
+            <div class="login-feature">
+              <strong>Каталог</strong>
+              <span>Можно менять цену, наличие, описание и скрывать товары с сайта.</span>
+            </div>
+          </div>
+
+          <div class="login-preview">
+            <div class="login-preview-row"><span>Новые заявки</span><strong>0</strong></div>
+            <div class="login-preview-row"><span>Бронь</span><strong>после подтверждения</strong></div>
+            <div class="login-preview-row"><span>Салон</span><strong>Дуси Ковальчук 179/2</strong></div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="app-shell hidden" id="appShell" hidden>
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="brand-row">
+            <div class="brand-mark">S</div>
+            <div>
+              <strong>Сибирь-Оптика</strong>
+              <span>Админка салона</span>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <span class="sidebar-card-label">Вы вошли в CRM</span>
+            <strong id="roleBadge">Сотрудник</strong>
+            <span>Доступ к разделам зависит от роли.</span>
+          </div>
+
+          <nav class="sidebar-nav">
+            <button class="nav-btn active" type="button" data-tab="dashboard"><span class="nav-icon">⌂</span><span>Главная</span></button>
+            <button class="nav-btn" type="button" data-tab="leads"><span class="nav-icon">◎</span><span class="nav-label">Заявки<span class="nav-badge hidden" id="unprocessedLeadsBadge">0</span></span></button>
+            <button class="nav-btn" type="button" data-tab="tickets"><span class="nav-icon">№</span><span>Номера заявок</span></button>
+            <button class="nav-btn" type="button" data-tab="closed"><span class="nav-icon">✓</span><span>Закрытые</span></button>
+            <button class="nav-btn" type="button" data-tab="products"><span class="nav-icon">▣</span><span>Каталог</span></button>
+            <button class="nav-btn" type="button" data-tab="reports"><span class="nav-icon">▤</span><span>Бухгалтерия</span></button>
+            <button class="nav-btn" type="button" data-tab="settings"><span class="nav-icon">⚙</span><span>Настройки</span></button>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip">
+            <strong>Простой порядок</strong>
+            <span>Новая заявка → звонок клиенту → подтверждение брони или записи → смена статуса.</span>
+          </div>
+          <button class="logout-btn" type="button" id="logoutBtn">Выйти</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <header class="topbar">
+          <div>
+            <h1 id="pageTitle">Главная</h1>
+            <p id="pageSubtitle">Вы в админке. Здесь можно работать с заявками, бронью и каталогом сайта.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="secondary-btn" type="button" data-open-tab="leads">Открыть заявки</button>
+            <button class="primary-btn" type="button" id="refreshBtn">Обновить</button>
+          </div>
+        </header>
+
+        <section class="tab visible" id="tab-dashboard">
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Последние заявки</h2>
+                  <p class="panel-subtitle">Новые обращения с сайта, бронь и запись на приём.</p>
+                </div>
+                <button class="secondary-btn" type="button" data-open-tab="leads">Все заявки</button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>№</th>
+                      <th>Дата</th>
+                      <th>Клиент</th>
+                      <th>Телефон</th>
+                      <th>Тип</th>
+                      <th>Статус</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentLeadsBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="dashboard-side">
+              <div class="panel">
+                <div class="panel-head panel-head-stacked">
+                  <div>
+                    <h2>Что делать дальше</h2>
+                    <p class="panel-subtitle">Основные действия сотрудника.</p>
+                  </div>
+                </div>
+                <div class="quick-actions">
+                  <button class="quick-action" type="button" data-open-tab="leads">
+                    <strong>Проверить заявки</strong>
+                    <span>Посмотреть новых клиентов и поменять статус.</span>
+                  </button>
+                  <button class="quick-action" type="button" data-open-tab="closed">
+                    <strong>Закрытые заявки</strong>
+                    <span>Посмотреть выполненные, неявки, отказы и отмены.</span>
+                  </button>
+                  <button class="quick-action" type="button" data-open-tab="products">
+                    <strong>Обновить каталог</strong>
+                    <span>Изменить наличие, цену или скрыть товар.</span>
+                  </button>
+                  <button class="quick-action" type="button" data-open-tab="tickets">
+                    <strong>Найти по номеру</strong>
+                    <span>Введите номер заявки, который получил клиент на сайте.</span>
+                  </button>
+                  <button class="quick-action" type="button" data-open-tab="reports">
+                    <strong>Отчёт для бухгалтерии</strong>
+                    <span>Посмотреть заявки в таблице и скачать Excel.</span>
+                  </button>
+                  <button class="quick-action" type="button" data-open-tab="settings">
+                    <strong>Проверить настройки</strong>
+                    <span>Телефон, адрес, график и срок брони.</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="panel">
+                <div class="panel-head panel-head-stacked">
+                  <div>
+                    <h2>Памятка по броням</h2>
+                    <p class="panel-subtitle">Бронь нельзя подтверждать автоматически.</p>
+                  </div>
+                </div>
+                <div class="guide-steps">
+                  <div><span>1</span><p>Откройте заявку и посмотрите, что выбрал клиент.</p></div>
+                  <div><span>2</span><p>Проверьте наличие товара в салоне.</p></div>
+                  <div><span>3</span><p>Позвоните клиенту и подтвердите бронь или запись.</p></div>
+                  <div><span>4</span><p>Поменяйте статус, чтобы заявка не потерялась.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab" id="tab-leads">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Заявки</h2>
+                <p class="panel-subtitle">Здесь остаются только активные заявки. После статусов “Выполнена”, “Не пришёл”, “Отказ клиента” или “Отменена” заявка автоматически переходит в закрытые.</p>
+              </div>
+              <div class="filters">
+                <input id="leadSearch" placeholder="Поиск по номеру, имени, телефону, товару" />
+                <select id="statusFilter">
+                  <option value="">Все статусы</option>
+                  <option value="new">Новая</option>
+                  <option value="in_progress">В работе</option>
+                  <option value="confirmed">Подтверждена</option>
+                  <option value="visited">Пришёл</option>
+                </select>
+                <select id="typeFilter">
+                  <option value="">Все типы</option>
+                  <option value="appointment">Запись</option>
+                  <option value="reservation">Бронь</option>
+                  <option value="availability">Уточнение</option>
+                
+                  <option value="optical-route">План визита</option></select>
+                <button class="secondary-btn" type="button" id="exportLeadsBtn">Скачать CSV</button>
+              </div>
+            </div>
+            <div class="cards-list" id="leadsList"></div>
+          </div>
+        </section>
+
+
+        <section class="tab" id="tab-tickets">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Номера заявок</h2>
+                <p class="panel-subtitle">Здесь можно найти любую заявку по номеру, который клиент получил на сайте. Раздел ищет и активные, и закрытые заявки.</p>
+              </div>
+              <div class="filters">
+                <input id="ticketSearch" placeholder="Введите номер заявки, телефон или имя" />
+                <select id="ticketStatusFilter">
+                  <option value="">Все статусы</option>
+                  <option value="new">Новая</option>
+                  <option value="in_progress">В работе</option>
+                  <option value="confirmed">Подтверждена</option>
+                  <option value="visited">Пришёл</option>
+                  <option value="completed">Выполнена</option>
+                  <option value="bought">Купил</option>
+                  <option value="no_show">Не пришёл</option>
+                  <option value="no_answer">Не дозвонились</option>
+                  <option value="refused">Отказ клиента</option>
+                  <option value="cancelled">Отменена</option>
+                </select>
+                <select id="ticketTypeFilter">
+                  <option value="">Все типы</option>
+                  <option value="appointment">Запись</option>
+                  <option value="reservation">Бронь</option>
+                  <option value="availability">Уточнение</option>
+                  <option value="optical-route">План визита</option>
+                </select>
+                <button class="primary-btn" type="button" id="ticketSearchBtn">Найти</button>
+                <button class="secondary-btn" type="button" id="ticketResetBtn">Сбросить</button>
+              </div>
+            </div>
+
+            <div class="ticket-summary" id="ticketSummary"></div>
+
+            <div class="help-box ticket-help">
+              <strong>Как использовать номер заявки</strong>
+              <p>Клиент после отправки формы видит номер заявки. Если он звонит и называет этот номер, введите его здесь — CRM покажет нужную заявку, её статус, телефон, комментарий и историю работы.</p>
+            </div>
+
+            <div class="cards-list" id="ticketsList"></div>
+          </div>
+        </section>
+
+
+        <section class="tab" id="tab-closed">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Закрытые заявки</h2>
+                <p class="panel-subtitle">Здесь хранятся выполненные заявки, неявки, отказы и отмены. Они не мешают текущей работе, но остаются в истории.</p>
+              </div>
+              <div class="filters">
+                <input id="closedSearch" placeholder="Поиск по номеру, имени, телефону, товару" />
+                <select id="closedStatusFilter">
+                  <option value="">Все закрытые</option>
+                  <option value="completed">Выполнена</option>
+                  <option value="bought">Купил</option>
+                  <option value="no_show">Не пришёл</option>
+                  <option value="no_answer">Не дозвонились</option>
+                  <option value="refused">Отказ клиента</option>
+                  <option value="cancelled">Отменена</option>
+                </select>
+                <select id="closedTypeFilter">
+                  <option value="">Все типы</option>
+                  <option value="appointment">Запись</option>
+                  <option value="reservation">Бронь</option>
+                  <option value="availability">Уточнение</option>
+                
+                  <option value="optical-route">План визита</option></select>
+                <button class="secondary-btn" type="button" id="closedResetBtn">Сбросить</button>
+              </div>
+            </div>
+            <div class="help-box closed-help">
+              <strong>Как работают закрытые заявки</strong>
+              <p>Когда заявке ставят статус “Выполнена”, “Не пришёл”, “Отказ клиента”, “Купил”, “Не дозвонились” или “Отменена”, она пропадает из раздела “Заявки” и остаётся здесь. Если вернуть статус “Новая”, “В работе”, “Подтверждена” или “Пришёл”, заявка снова появится в активных заявках.</p>
+            </div>
+            <div class="cards-list" id="closedLeadsList"></div>
+          </div>
+        </section>
+
+        <section class="tab" id="tab-reports">
+          <div class="panel">
+            <div class="panel-head panel-head-stacked">
+              <div>
+                <h2>Отчёт для бухгалтерии</h2>
+                <p class="panel-subtitle">Здесь заявки показываются простой таблицей. Доступ к pgAdmin и PostgreSQL бухгалтеру не нужен.</p>
+              </div>
+            </div>
+
+            <div class="filters accounting-filters">
+              <input id="accountingSearch" placeholder="Поиск по номеру, имени, телефону, товару" />
+              <select id="accountingStatusFilter">
+                <option value="">Все статусы</option>
+                <option value="new">Новая</option>
+                <option value="in_progress">В работе</option>
+                <option value="confirmed">Подтверждена</option>
+                <option value="visited">Пришёл</option>
+                <option value="completed">Выполнена</option>
+                <option value="bought">Купил</option>
+                <option value="no_show">Не пришёл</option>
+                <option value="no_answer">Не дозвонились</option>
+                <option value="refused">Отказ клиента</option>
+                <option value="cancelled">Отменена</option>
+              </select>
+              <select id="accountingTypeFilter">
+                <option value="">Все типы</option>
+                <option value="appointment">Запись</option>
+                <option value="reservation">Бронь</option>
+                <option value="availability">Уточнение</option>
+              
+                  <option value="optical-route">План визита</option></select>
+              <label class="compact-date"><span>С</span><input type="date" id="accountingDateFrom" /></label>
+              <label class="compact-date"><span>По</span><input type="date" id="accountingDateTo" /></label>
+              <button class="secondary-btn" type="button" id="accountingApplyFiltersBtn">Показать</button>
+              <button class="secondary-btn" type="button" id="accountingResetFiltersBtn">Сбросить</button>
+              <button class="primary-btn" type="button" id="downloadAccountingExcelBtn">Скачать Excel</button>
+              <button class="secondary-btn" type="button" id="downloadAccountingCsvBtn">Скачать CSV</button>
+            </div>
+
+            <div class="accounting-summary" id="accountingSummary"></div>
+
+            <div class="table-wrap accounting-table-wrap">
+              <table class="accounting-table">
+                <thead>
+                  <tr>
+                    <th>Дата</th>
+                    <th>Статус</th>
+                    <th>Тип</th>
+                    <th>Клиент</th>
+                    <th>Телефон</th>
+                    <th>Товар или услуга</th>
+                    <th>Рецепт / параметры</th>
+                    <th>Комментарий клиента</th>
+                    <th>Заметка сотрудника</th>
+                    <th>Источник</th>
+                  </tr>
+                </thead>
+                <tbody id="accountingReportBody"></tbody>
+              </table>
+            </div>
+
+            <div class="help-box">
+              <strong>Как передавать бухгалтеру</strong>
+              <p>Выберите период и нажмите “Скачать Excel”. Полученный файл можно отправить бухгалтеру как обычную таблицу.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab" id="tab-products">
+          <div class="products-layout">
+            <form class="panel product-form" id="productForm">
+              <div class="panel-head panel-head-stacked">
+                <div>
+                  <h2 id="productFormTitle">Добавить товар</h2>
+                  <p class="panel-subtitle">Каталог хранится в CRM: сюда можно добавлять реальные товары, наличие и фото. Активные товары будут показываться на сайте в разделе «Актуальная витрина».</p>
+                </div>
+              </div>
+              <input type="hidden" id="productId" />
+              <div class="form-grid">
+                <label><span>Название</span><input id="productTitle" placeholder="Например, Очки для компьютера" required /></label>
+                <label><span>Раздел</span><select id="productSection"><option value="frames">Очки и оправы</option><option value="lenses">Линзы</option><option value="contacts">Контактные линзы</option><option value="accessories">Аксессуары</option><option value="services">Услуги мастера</option></select></label>
+                <label><span>Категория</span><input id="productCategory" placeholder="Очки, Линзы, Услуги" /></label>
+                <label><span>Бренд</span><input id="productBrand" placeholder="Ray-Ban, Acuvue, Сибирь-Оптика" /></label>
+                <label><span>Тип</span><input id="productType" placeholder="Прогрессивные, Контактные, Ремонт" /></label>
+                <label><span>Цена</span><input id="productPrice" placeholder="от 1 990 ₽" /></label>
+                <label><span>Наличие</span><input id="productAvailability" placeholder="в салоне, под заказ, уточнить" /></label>
+                <label class="form-span-2"><span>Фото товара</span><input id="productImageFile" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" /></label>
+                <label class="form-span-2"><span>Ссылка на фото</span><input id="productImage" placeholder="/uploads/products/photo.jpg" /></label>
+                <label class="form-span-2"><span>Теги через запятую</span><input id="productTags" placeholder="очки, для компьютера, антиблик" /></label>
+                <label class="form-span-2"><span>Описание</span><textarea id="productDescription" rows="4" placeholder="Кратко опишите товар или услугу"></textarea></label>
+              </div>
+              <label class="check-row"><input type="checkbox" id="productActive" /><span>Показывать товар на сайте</span></label>
+              <div class="form-actions">
+                <button type="submit" class="primary-btn">Сохранить</button>
+                <button type="button" class="secondary-btn" id="resetProductBtn">Очистить</button>
+              </div>
+              <p id="productStatus" class="form-hint"></p>
+            </form>
+
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Каталог CRM</h2>
+                  <p class="panel-subtitle">Здесь хранятся реальные товары. Активные товары показываются на сайте, скрытые остаются только в CRM.</p>
+                </div>
+                <span class="count-badge" id="productsCount"></span>
+              </div>
+              <div class="cards-list" id="productsList"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab" id="tab-settings">
+          <div class="settings-layout">
+            <form class="panel settings-form" id="settingsForm">
+              <div class="panel-head panel-head-stacked">
+                <div>
+                  <h2>Настройки бизнеса</h2>
+                  <p class="panel-subtitle">Основные данные салона.</p>
+                </div>
+              </div>
+              <div class="form-grid">
+                <label><span>Название</span><input id="businessName" /></label>
+                <label><span>Телефон</span><input id="phone" /></label>
+                <label class="form-span-2"><span>Адрес</span><input id="address" /></label>
+                <label><span>График</span><input id="workTime" /></label>
+                <label><span>Срок предварительной брони, часов</span><input type="number" min="1" max="168" id="bookingHoldHours" /></label>
+                <label class="form-span-2"><span>Текст про бронь</span><textarea id="reservationText" rows="3"></textarea></label>
+                <label class="form-span-2"><span>Email для уведомлений</span><input id="notificationEmail" /></label>
+                <label class="form-span-2"><span>Email для клиентов на сайте</span><input id="publicEmail" placeholder="пока не указано" /></label>
+                <label><span>WhatsApp для клиентов</span><input id="whatsappPhone" placeholder="пока не указано" /></label>
+                <label><span>Telegram</span><input id="telegramUrl" placeholder="пока не указано" /></label>
+                <label><span>Название точки 1</span><input id="salonOneName" placeholder="Дуси Ковальчук" /></label>
+                <label><span>Название точки 2</span><input id="salonTwoName" placeholder="Учительская" /></label>
+                <label class="form-span-2"><span>Адрес точки 1</span><input id="salonOneAddress" placeholder="Новосибирск, ул. Дуси Ковальчук 179/2, кор. 16/2" /></label>
+                <label class="form-span-2"><span>Адрес точки 2</span><input id="salonTwoAddress" placeholder="Новосибирск, ул. Учительская 33" /></label>
+                <label class="form-span-2"><span>Яндекс Карты — точка 1</span><input id="salonOneYandexMapUrl" placeholder="пока не указано" /></label>
+                <label class="form-span-2"><span>2ГИС — точка 1</span><input id="salonOneGisUrl" placeholder="пока не указано" /></label>
+                <label class="form-span-2"><span>Маршрут — точка 1</span><input id="salonOneRouteUrl" placeholder="пока не указано" /></label>
+                <label class="form-span-2"><span>Яндекс Карты — точка 2</span><input id="salonTwoYandexMapUrl" placeholder="пока не указано" /></label>
+                <label class="form-span-2"><span>2ГИС — точка 2</span><input id="salonTwoGisUrl" placeholder="пока не указано" /></label>
+                <label class="form-span-2"><span>Маршрут — точка 2</span><input id="salonTwoRouteUrl" placeholder="пока не указано" /></label>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="primary-btn">Сохранить настройки</button>
+              </div>
+              <p id="settingsStatus" class="form-hint"></p>
+            </form>
+
+            <div class="panel">
+              <div class="panel-head panel-head-stacked">
+                <div>
+                  <h2>Как пользоваться CRM</h2>
+                  <p class="panel-subtitle">Для сотрудника без опыта.</p>
+                </div>
+              </div>
+              <div class="info-grid">
+                <div><strong>Заявки</strong><span>Смотрите, кто оставил телефон и что человеку нужно.</span></div>
+                <div><strong>Статусы</strong><span>Меняйте статус, чтобы понимать, что уже обработано.</span></div>
+                <div><strong>Каталог</strong><span>Меняйте цену, наличие и описание товаров.</span></div>
+                <div><strong>Бронь</strong><span>Подтверждайте только после проверки наличия.</span></div>
+              </div>
+              <div class="help-box">
+                <strong>Важно</strong>
+                <p>CRM открывается после пароля. Клиент сайта эту админку не видит.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast-stack" id="toastStack"></div>
+  <script src="/crm/app.js?v=crm-readable-leads-22"></script>
+</body>
+</html>
